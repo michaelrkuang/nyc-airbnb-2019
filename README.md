@@ -2,7 +2,7 @@
 ## Contact Info: michaelk8040@gmail.com , https://www.linkedin.com/in/michael-kuang/
 ## NYC Airbnb 2019 Listings - End-to-End Data Analysis (Python, MySQL, Tableau)
 
-An end-to-end analysis of the NYC Airbnb 2019 listings dataset (`AB_NYC_2019.csv`) using:
+### An end-to-end analysis of the NYC Airbnb 2019 listings dataset (`AB_NYC_2019.csv`) using:
 
 EDA/cleaning using Python Pandas -> MySQL staging + analytics view -> export for Tableau -> Tableau data visualization
 
@@ -20,7 +20,7 @@ EDA/cleaning using Python Pandas -> MySQL staging + analytics view -> export for
 ### 1) eda_exploration.ipynb
 Exploration analysis + documented observations/actions
 ### 2) data_clean.py
-Clearning the raw csv file containing the ~49K NYC 2019 Airbnb listings
+Clean the raw csv file containing the ~49K NYC 2019 Airbnb listings
 ### 3) load_to_mysql.py
 Load cleaned data into MySQL staging table
 ### 4) airbnb.sql
@@ -28,7 +28,7 @@ MySQL schema + creation of analytics view using window functions
 ### 5) export_for_tableau.py
 Export analytics view to CSV for Tableau
 ### 6) Airbnb NYC 2019 - Listings Analysis.twb
-Creating data visualizations using cleaned listing data
+Create data visualizations using cleaned listing data
 
 # Dataset
 
@@ -41,10 +41,10 @@ Creating data visualizations using cleaned listing data
 Notebook: `eda_exploration.ipynb`
 
 The EDA notebook analyzes the dataset is the following aspects, influencing data cleansing and data visualization in the later steps:
-- dataset structure
-- data quality checks
-- distributions & outliers (e.g. `price`, `minimum_nights`)
-- segment breakdowns
+1. dataset structure
+2. data quality checks
+3. distributions & outliers (e.g. `price`, `minimum_nights`)
+4. segment breakdowns
 
 ## 2) Cleaning & Formatting
 Script: `data_cleaning.py`
@@ -105,5 +105,5 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 ### 3) Export the analytics view
 - Run `export_for_tableau.py` to create the `listings_tableau.csv` file which will be imported to Tableau public. If using Tableau Desktop, a direct connection can be made between the Mysql server and Tableau.
 
-### 4) Tableau dashboards
+### 4) Build Tableau dashboards
 - In Tableau Public: Connect -> Text file -> select `listings_tableau.csv` to start creating visuals using fields from `listings_tableau.csv`. Use geography (e.g. neighbourhood group, latitude/longitude), availability, and review counts alongside price to create calculated measures and identify patterns and trends.
