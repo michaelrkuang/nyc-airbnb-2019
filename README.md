@@ -1,12 +1,13 @@
 # Author: Michael Kuang
-# Contact Info: michaelk8040@gmail.com , https://www.linkedin.com/in/michael-kuang/
-# NYC Airbnb 2019 Listings - End-to_End Data Analysis (Python, MySQL, Tableau)
+## Contact Info: michaelk8040@gmail.com , https://www.linkedin.com/in/michael-kuang/
+## NYC Airbnb 2019 Listings - End-to-End Data Analysis (Python, MySQL, Tableau)
 
 An end-to-end analysis of the NYC Airbnb 2019 listings dataset (`AB_NYC_2019.csv`) using:
 
 EDA/cleaning using Python Pandas -> MySQL staging + analytics view -> export for Tableau -> Tableau data visualization
 
-## Tableau Dashboards (Tableau Public): https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsAnalysis/NYCAirbnbMarketOverview
+## Tableau Dashboards (Tableau Public): 
+### https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsAnalysis/NYCAirbnbMarketOverview
 
 ## Tableau Dashboards (Screenshots):
 ![NYC Airbnb Market Overview](images/NYC%20Airbnb%20Market%20Overview.png)
@@ -17,17 +18,17 @@ EDA/cleaning using Python Pandas -> MySQL staging + analytics view -> export for
 # Repository Contents
 
 ### 1) eda_exploration.ipynb
-    - Exploration analysis + documented observations/actions
+Exploration analysis + documented observations/actions
 ### 2) data_clean.py
-    - Clearning the raw csv file containing the ~49K NYC 2019 Airbnb listings
+Clearning the raw csv file containing the ~49K NYC 2019 Airbnb listings
 ### 3) load_to_mysql.py
-    - Load cleaned data into MySQL staging table
+Load cleaned data into MySQL staging table
 ### 4) airbnb.sql
-    - MySQL schema + creation of analytics view using window functions
+MySQL schema + creation of analytics view using window functions
 ### 5) export_for_tableau.py
-    - Export analytics view to CSV for Tableau
+Export analytics view to CSV for Tableau
 ### 6) Airbnb NYC 2019 - Listings Analysis.twb
-    - Creating data visualizations using cleaned listing data
+Creating data visualizations using cleaned listing data
 
 # Dataset
 
@@ -77,21 +78,21 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 
 # Dashboards Created:
 
-## - `Dashboard 1 - NYC Airbnb Market Overview`
+## - `Dashboard 1: NYC Airbnb Market Overview`
 ![NYC Airbnb Market Overview](images/NYC%20Airbnb%20Market%20Overview.png)
-    - Provides high-level overview of the NYC Airbnb market in 2019, summarizing market supply and pricing by borough. It visualizes (1) distribution of room types, (2) listings by borough, (3) median nightly price by borough, and (4) a color-coded map by borough zones, providing insight on listing concentration and pricing differences. 
+- Provides high-level overview of the NYC Airbnb market in 2019, summarizing market supply and pricing by borough. It visualizes (1) distribution of room types, (2) listings by borough, (3) median nightly price by borough, and (4) a color-coded map by borough zones, providing insight on listing concentration and pricing differences. 
 
-## - `Dashboard 2 - Pricing & Demand Signals`
+## - `Dashboard 2: Pricing & Demand Signals`
 ![Pricing & Demand Signals](images/Pricing%20&%20Demand%20Signals.png)
-    - Showcases (1) the correlation between price and reviews per month (signals demand), (2) compares median prices per room type for the selected borough, and (3) the top 5 neighbourhoods by average availability within each Borough. It helps potential areas to stay by combining typical price levels with how frequently listings are available (days available out of 365).
+- Showcases (1) the correlation between price and reviews per month (signals demand), (2) compares median prices per room type for the selected borough, and (3) the top 5 neighbourhoods by average availability within each Borough. It helps potential areas to stay by combining typical price levels with how frequently listings are available (days available out of 365).
 
-## - `Dashboard 3 - Price Premiums vs Room-Type Benchmarks`
+## - `Dashboard 3: Price Premiums vs Room-Type Benchmarks`
 ![Price Premiums vs Room-Type Benchmarks](images/Price%20Premiums%20vs%20Room-Type%20Benchmarks.png)
-    - Analyzes price premiums/discounts relative to a citywide room-type benchmark for NYC Airbnb listings (2019). It visualises (1) the distribution of price premiums to show how listings deviate from the benchmark, (2) median price premium by borough to compare typical over/underpricing across boroughs, and (3) a map of price premiums by listing location to highlight where higher or lower pricing tends to cluster (orange = below city benchmark | blue = above city benchmark).
+- Analyzes price premiums/discounts relative to a citywide room-type benchmark for NYC Airbnb listings (2019). It visualises (1) the distribution of price premiums to show how listings deviate from the benchmark, (2) median price premium by borough to compare typical over/underpricing across boroughs, and (3) a map of price premiums by listing location to highlight where higher or lower pricing tends to cluster (orange = below city benchmark | blue = above city benchmark).
 
-## - `Dashboard 4 - Listing Explorer: Price vs Room-Type Benchmark`
+## - `Dashboard 4: Listing Explorer: Price vs Room-Type Benchmark`
 ![Listings Explorer](images/Listings%20Explorer.png)
-    -  Provides an interactive listing browser that lets users explore individual Airbnb listings and compare each listings's price to the citywide average for its room type (shows a calculated premium/discount). Users can filter by borough group, room type, reviews per month, and premium category (more expensive, near market, or cheaper). There is also a summary panel that counts listings by premium category which updates based on the selected parameters.
+-  Provides an interactive listing browser that lets users explore individual Airbnb listings and compare each listings's price to the citywide average for its room type (shows a calculated premium/discount). Users can filter by borough group, room type, reviews per month, and premium category (more expensive, near market, or cheaper). There is also a summary panel that counts listings by premium category which updates based on the selected parameters.
 
 # How to run the pipeline
 
