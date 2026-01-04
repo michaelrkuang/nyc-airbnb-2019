@@ -3,19 +3,22 @@
 ## An end-to-end analysis of the NYC Airbnb 2019 listings (`AB_NYC_2019.csv`): cleaned and profiled data in Python (Pandas), modeled it in MySQL (staging + window-function analytics view), then exported to Tableau for interactive dashboards.   
 
 **Workflow:** EDA/cleaning using Python Pandas -> MySQL staging + analytics view -> export for Tableau -> Tableau data visualization
+
 **Tech stack:** Python (Pandas + Matplotlib), MySQL (SQL + window functions), Tableau Public
 
-**Author:** Michael Kuang
-**LinkedIn:** https://www.linkedin.com/in/michael-kuang/
-**Email:** michaelk8040 [at] gmail [dot] com
+Author: Michael Kuang
+LinkedIn: https://www.linkedin.com/in/michael-kuang/
+Email: michaelk8040@gmail.com
 
 ## Tableau Dashboards (Tableau Public): 
 - https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsAnalysis/NYCAirbnbMarketOverview
 
 ## Key insights:
-- Manhattan is the most expensive Borough to live in with an 8% price premium on average across all room types as compared to NYC wide median while Staten Island was the most discounted at -29%.
-- There is a positive coorilation between the nightly price and reviews per month. Based on the nightly price vs reviews per month scatter plot diagram with trendline, listings with lower prices tend to have more reviews per month. 
-- The dot distribution map shows that most of the listings with higher premiums are within the South-West region of Manhattan and North-West region of Brooklyn (highlighted in blue).
+- The market is highly concentrated: Manhatten (19,589, 44.1%) and Brooklyn (18,482, 41.6%) make up ~85.8% of all listings (44,398 total) with Queens a distant third (5,095, 11.5%).
+- Median nightly price by borough: Manhattan $140, Brooklyn $95, Staten Island $80, Queens $79, Bronx $75.
+- Benchmark-based pricing shows premiums/discounts: Median premium vs the citywide room-type benchmark is ~+8% in Manhatten, while other boroughs skew discounts (Brooklyn ~-22%, Queens/Bronx ~-27%, Staten Island ~-29%).
+- Premiums are geographically clustered: Higher premium listings concentrate in southwest Manhatten and northwest Brooklyn based on the blue regions on the dot distribution map, while many outer-borough areas are discounted.
+- There is a direct coorelation between the nightly price and reviews per month. Based on the nightly price vs reviews per month scatter plot diagram with trendline, listings with lower prices tend to have more reviews per month. 
 
 # Repository Contents
 
