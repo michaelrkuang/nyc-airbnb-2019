@@ -22,21 +22,6 @@
 - Premiums are geographically clustered: Higher premium listings concentrate in southwest Manhatten and northwest Brooklyn based on the blue regions on the dot distribution map, while many outer-borough areas are discounted.
 - There is a direct coorelation between the nightly price and reviews per month. Based on the nightly price vs reviews per month scatter plot diagram with trendline, listings with lower prices tend to have more reviews per month. 
 
-# Repository Contents
-
-### 1) eda_exploration.ipynb
-Exploration analysis + documented observations/actions
-### 2) data_clean.py
-Clean the raw csv file containing the ~49K NYC 2019 Airbnb listings
-### 3) load_to_mysql.py
-Load cleaned data into MySQL staging table
-### 4) airbnb.sql
-MySQL schema + creation of analytics view using window functions
-### 5) export_for_tableau.py
-Export analytics view to CSV for Tableau
-### 6) Airbnb NYC 2019 - Listings Analysis.twb
-Create data visualizations using cleaned listing data
-
 # Dataset
 
 - Source: Kaggle - New York City Airbnb Open Data (2019)
@@ -69,7 +54,7 @@ Schema + view: `airbnb.sql`
 Loaded the cleaned dataset into MySQL to create a reusable analytics layer. SQL allows me to standardize transformations, build window-function metrics, and keep business logic version controlled and reproducible across tools.
 
 - `airbnb.sql` defines the staging table `listings_staging`.
-- `load_to_mysql.py` reads the raw CSV `data/AB_NYC_2019.csv`, applies `get_cleaned_df()`, then inserts the cleaned records into `listings_staging` using Mysql.connector.
+- `load_to_mysql.py` reads the raw CSV `data/AB_NYC_2019.csv`, applies `get_cleaned_df()`, then inserts the cleaned records into `listings_staging` using mysql.connector.
 
 ## 4) Analytics view for Tableau
 SQL view: `listings_data` (created in `airbnb.sql`)
@@ -101,6 +86,21 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 ![Listings Explorer](images/Listings%20Explorer.png)
 -  Provides an interactive listing browser that lets users explore individual Airbnb listings and compare each listing's price to the citywide average for its room type (shows a calculated premium/discount). Users can filter by borough group, room type, reviews per month, and premium category (more expensive, near market, or cheaper). There is also a summary panel that counts listings by premium category which updates based on the selected parameters.
 
+# Repository Contents
+
+### 1) eda_exploration.ipynb
+Exploration analysis + documented observations/actions
+### 2) data_clean.py
+Clean the raw csv file containing the ~49K NYC 2019 Airbnb listings
+### 3) load_to_mysql.py
+Load cleaned data into MySQL staging table
+### 4) airbnb.sql
+MySQL schema + creation of analytics view using window functions
+### 5) export_for_tableau.py
+Export analytics view to CSV for Tableau
+### 6) Airbnb NYC 2019 - Listings Analysis.twb
+Create data visualizations using cleaned listing data
+
 # How to run the pipeline
 
 ### 1) Create a database in MySQL
@@ -108,6 +108,6 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 ### 2) Load cleaned data into MySQL
 - Run `load_to_mysql.py` file to insert the rows into `listings_staging`.
 ### 3) Export the analytics view
-- Run `export_for_tableau.py` to create the `listings_tableau.csv` file which will be imported to Tableau public. If using Tableau Desktop, a direct connection can be made between the Mysql server and Tableau.
+- Run `export_for_tableau.py` to create the `listings_tableau.csv` file which will be imported to Tableau public. If using Tableau Desktop, a direct connection can be made between the MySQL server and Tableau.
 ### 4) Build Tableau dashboards
 - In Tableau Public: Connect -> Text file -> select `listings_tableau.csv` to start creating visuals using fields from `listings_tableau.csv`. Use geography (e.g. neighbourhood group, latitude/longitude), availability, and review counts alongside price to create calculated measures and identify patterns and trends.
