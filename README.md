@@ -6,12 +6,14 @@
 
 **Tech stack:** Python (Pandas + Matplotlib), MySQL (SQL + window functions), Tableau Public
 
-Author: Michael Kuang
-LinkedIn: https://www.linkedin.com/in/michael-kuang/
-Email: michaelk8040@gmail.com
-
 ## Tableau Dashboards (Tableau Public): 
 - https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsAnalysis/NYCAirbnbMarketOverview
+
+**Author:** Michael Kuang
+
+**LinkedIn:** https://www.linkedin.com/in/michael-kuang/
+
+**Email:** michaelk8040@gmail.com
 
 ## Key insights:
 - The market is highly concentrated: Manhatten (19,589, 44.1%) and Brooklyn (18,482, 41.6%) make up ~85.8% of all listings (44,398 total) with Queens a distant third (5,095, 11.5%).
@@ -103,12 +105,9 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 
 ### 1) Create a database in MySQL
 - Run `airbnb.sql` to create `listings_staging` table and `listings_data` view.
-
 ### 2) Load cleaned data into MySQL
 - Run `load_to_mysql.py` file to insert the rows into `listings_staging`.
-
 ### 3) Export the analytics view
 - Run `export_for_tableau.py` to create the `listings_tableau.csv` file which will be imported to Tableau public. If using Tableau Desktop, a direct connection can be made between the Mysql server and Tableau.
-
 ### 4) Build Tableau dashboards
 - In Tableau Public: Connect -> Text file -> select `listings_tableau.csv` to start creating visuals using fields from `listings_tableau.csv`. Use geography (e.g. neighbourhood group, latitude/longitude), availability, and review counts alongside price to create calculated measures and identify patterns and trends.
