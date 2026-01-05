@@ -89,17 +89,17 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 # Repository Contents
 
 ### 1) notebooks/eda_exploration.ipynb
-Exploration analysis + documented observations/actions
+- Exploration analysis + documented observations/actions
 ### 2) scripts/data_clean.py
-Clean the raw csv file containing the ~49K NYC 2019 Airbnb listings
+- Clean the raw csv file containing the ~49K NYC 2019 Airbnb listings
 ### 3) scripts/load_to_mysql.py
-Load cleaned data into MySQL staging table
+- Load cleaned data into MySQL staging table
 ### 4) scripts/export_for_tableau.py
-Export analytics view to CSV for Tableau
+- Export analytics view to CSV for Tableau
 ### 5) sql/airbnb.sql
-MySQL schema + creation of analytics view using window functions
+- MySQL schema + creation of analytics view using window functions
 ### 6) tableau/Airbnb NYC 2019 - Listings Analysis.twb
-Create data visualizations using cleaned listing data
+- Create data visualizations using cleaned listing data
 
 # How to run the pipeline
 
