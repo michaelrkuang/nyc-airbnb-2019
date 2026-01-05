@@ -7,7 +7,7 @@
 **Tech stack:** Python (Pandas + Matplotlib), MySQL (SQL + window functions), Tableau Public
 
 ## Tableau Dashboards (Tableau Public): 
-https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsAnalysis/NYCAirbnbMarketOverview
+> https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsAnalysis/NYCAirbnbMarketOverview
 
 **Author:** Michael Kuang
 
