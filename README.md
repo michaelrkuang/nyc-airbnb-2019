@@ -1,6 +1,6 @@
 # NYC Airbnb 2019 Listings - End-to-End Data Analysis (Python, MySQL, Tableau)
 
-## An end-to-end analysis of the NYC Airbnb 2019 listings (`AB_NYC_2019.csv`): cleaned and profiled data in Python (Pandas), modeled it in MySQL (staging + window-function analytics view), then exported to Tableau for interactive dashboards.   
+**Summary:** An end-to-end analysis of the NYC Airbnb 2019 listings (`AB_NYC_2019.csv`): cleaned and profiled data in Python (Pandas), modeled it in MySQL (staging + window-function analytics view), then exported to Tableau for interactive dashboards.   
 
 **Workflow:** EDA/cleaning using Python Pandas -> MySQL staging + analytics view -> export for Tableau -> Tableau data visualization
 
