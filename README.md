@@ -104,7 +104,8 @@ Create data visualizations using cleaned listing data
 # How to run the pipeline
 
 ### 0) Download the dataset (Kaggle)
-- Download `AB_NYC_2019.csv` from Kaggle: https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
+- Download `AB_NYC_2019.csv` from Kaggle: 
+https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
 - Save it to `data/AB_NYC_2019.csv`.
 ### 1) Create a database in MySQL
 - Run `sql/airbnb.sql` to create `listings_staging` table and `listings_data` analytics view.
