@@ -16,16 +16,16 @@ https://public.tableau.com/app/profile/michael.kuang/viz/AirbnbNYC2019-ListingsA
 **Email:** michaelk8040@gmail.com
 
 ## Key insights:
-- The market is highly concentrated: Manhatten (19,589, 44.1%) and Brooklyn (18,482, 41.6%) make up ~85.8% of all listings (44,398 total) with Queens a distant third (5,095, 11.5%).
+- The market is highly concentrated: Manhattan (19,589, 44.1%) and Brooklyn (18,482, 41.6%) make up ~85.8% of all listings (44,398 total) with Queens a distant third (5,095, 11.5%).
 - Median nightly price by borough: Manhattan $140, Brooklyn $95, Staten Island $80, Queens $79, Bronx $75.
-- Benchmark-based pricing shows premiums/discounts: Median premium vs the citywide room-type benchmark is ~+8% in Manhatten, while other boroughs skew discounts (Brooklyn ~-22%, Queens/Bronx ~-27%, Staten Island ~-29%).
-- Premiums are geographically clustered: Higher premium listings concentrate in southwest Manhatten and northwest Brooklyn based on the blue regions on the dot distribution map, while many outer-borough areas are discounted.
-- There is a direct coorelation between the nightly price and reviews per month. Based on the nightly price vs reviews per month scatter plot diagram with trendline, listings with lower prices tend to have more reviews per month. 
+- Benchmark-based pricing shows premiums/discounts: Median premium vs the citywide room-type benchmark is ~+8% in Manhattan, while other boroughs skew discounts (Brooklyn ~-22%, Queens/Bronx ~-27%, Staten Island ~-29%).
+- Premiums are geographically clustered: Higher premium listings concentrate in southwest Manhattan and northwest Brooklyn based on the blue regions on the dot distribution map, while many outer-borough areas are discounted.
+- There is a negative correlation between the nightly price and reviews per month. Based on the nightly price vs reviews per month scatter plot diagram with trendline, listings with lower prices tend to have more reviews per month. 
 
 # Dataset
 
 - Source: Kaggle - New York City Airbnb Open Data (2019)
-> The raw CSV is not included in this repository, please download from Kaggle before running the pipeline.
+> The raw CSV is not included in this repository; please download from Kaggle before running the pipeline.
 
 # Project Workflow
 
@@ -41,7 +41,7 @@ The EDA notebook analyzes the dataset is the following aspects, influencing data
 ## 2) Cleaning & Formatting
 Script: `data_clean.py`
 
-The get_cleaned_df() function supports with the following:
+The get_cleaned_df() function does the following:
 - Added logic guard rails to exclude rows with erroneous data (e.g. listings with minimum nights of > 365)
 - Dropped listings with incomplete coordinates
 - Handled null values and standardizing text fields such as host name and neighbourhood
@@ -66,7 +66,7 @@ SQL view: `listings_data` (created in `airbnb.sql`)
 File: Airbnb NYC 2019 - Listings Analysis.twb
 - Built the BI dashboards by creating calculated measures such as `City Avg Price per Room Type` (aggregate), `Median Nightly Price` (aggregate), and `More Expensive Listings` (count based on string validation) using Tableau calculations.
 - These dashboards provide a high level overview of the NYC Airbnb listings data including market composition, pricing vs demand signals, listing premiums vs market benchmarks, and listing-level details.
-> Tableau Note: In a production setup, I would create a direct connection between the mySQL database and Tableau for a live data source. Tableau Public only supports file-based sources (e.g. CSV). For that reason, the project exports 'listings_data' to 'listings_tableau.csv' for Tableau import.
+> Tableau Note: In a production setup, I would create a direct connection between the MySQL database and Tableau for a live data source. Tableau Public only supports file-based sources (e.g. CSV). For that reason, the project exports 'listings_data' to 'listings_tableau.csv' for Tableau import.
 
 # Dashboards Created:
 
@@ -88,26 +88,29 @@ File: Airbnb NYC 2019 - Listings Analysis.twb
 
 # Repository Contents
 
-### 1) eda_exploration.ipynb
+### 1) notebooks/eda_exploration.ipynb
 Exploration analysis + documented observations/actions
-### 2) data_clean.py
+### 2) scripts/data_clean.py
 Clean the raw csv file containing the ~49K NYC 2019 Airbnb listings
-### 3) load_to_mysql.py
+### 3) scripts/load_to_mysql.py
 Load cleaned data into MySQL staging table
-### 4) airbnb.sql
-MySQL schema + creation of analytics view using window functions
-### 5) export_for_tableau.py
+### 4) scripts/export_for_tableau.py
 Export analytics view to CSV for Tableau
-### 6) Airbnb NYC 2019 - Listings Analysis.twb
+### 5) sql/airbnb.sql
+MySQL schema + creation of analytics view using window functions
+### 6) tableau/Airbnb NYC 2019 - Listings Analysis.twb
 Create data visualizations using cleaned listing data
 
 # How to run the pipeline
 
+### 0) Download the dataset (Kaggle)
+- Download `AB_NYC_2019.csv` from Kaggle: https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
+- Save it to `data/AB_NYC_2019.csv`.
 ### 1) Create a database in MySQL
-- Run `airbnb.sql` to create `listings_staging` table and `listings_data` view.
+- Run `sql/airbnb.sql` to create `listings_staging` table and `listings_data` analytics view.
 ### 2) Load cleaned data into MySQL
-- Run `load_to_mysql.py` file to insert the rows into `listings_staging`.
+- Run `scripts/load_to_mysql.py` file to call `get_cleaned_df()` from `scripts/data_clean.py`, clean the raw 2019 NYC Airbnb listings, and insert rows into `listings_staging`.
 ### 3) Export the analytics view
-- Run `export_for_tableau.py` to create the `listings_tableau.csv` file which will be imported to Tableau public. If using Tableau Desktop, a direct connection can be made between the MySQL server and Tableau.
+- Run `scripts/export_for_tableau.py` to export the analytics and creating the `listings_tableau.csv` file which will be imported to Tableau public. If using Tableau Desktop, a direct connection can be made between the MySQL server and Tableau, bypassing the CSV export step.
 ### 4) Build Tableau dashboards
 - In Tableau Public: Connect -> Text file -> select `listings_tableau.csv` to start creating visuals using fields from `listings_tableau.csv`. Use geography (e.g. neighbourhood group, latitude/longitude), availability, and review counts alongside price to create calculated measures and identify patterns and trends.
